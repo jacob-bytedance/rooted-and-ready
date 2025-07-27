@@ -1,19 +1,26 @@
-![banner](./apps/docs/public/banner.png)
+## Local Development
 
-The framework for building documentation websites in Next.js.
+To set up and run this project locally:
 
-📘 Learn More: [Documentation](https://fumadocs.vercel.app).
+1. **Prerequisites**
+   - Node.js >= 18.17.0
+   - pnpm >= 9.14.4
 
-## Compatibility
+2. **Installation**
+   ```bash
+   # Install dependencies
+   pnpm install
 
-All packages are **ESM only**.
+   # Build workspace packages
+   pnpm build
+   ```
 
-## Sticker
+3. **Development**
+   ```bash
+   # Start the documentation site
+   cd apps/docs
+   pnpm dev
+   ```
 
-![logo](./documents/logo.png)
-
-Welcome to print it out :D
-
-## Contributions
-
-Make sure to read the [Contributing Guide](/.github/contributing.md) before submitting a pull request.
+   The development server will start at http://localhost:3000
+   
