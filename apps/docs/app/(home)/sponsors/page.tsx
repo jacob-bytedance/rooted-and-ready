@@ -190,9 +190,8 @@ export default async function Page() {
         {sponsors
           .filter((sponsor) => sponsor.__typename === 'Organization')
           .map((sponsor) => {
-            const tier = tiers.find(
-              (tier) => (sponsor.tier?.monthlyPriceInDollars ?? 0) >= tier.min,
-            );
+            const monthlyPrice = sponsor.tier?.monthlyPriceInDollars ?? 0;
+            const tier = tiers.find((tier) => monthlyPrice >= tier.min) ?? tiers[tiers.length - 1];
 
             return (
               <a
