@@ -27,7 +27,11 @@ const tiers = [
 export default async function Page() {
   const result = await getSponsors(owner);
 
-  const sponsors = result.map((v) => {
+  // Ensure all sponsors have a valid tier object
+  const sponsors = result.map((v) => ({
+    ...v,
+    tier: v.tier ?? { monthlyPriceInDollars: 0, name: 'Free Tier' }
+  })).map((v) => {
     const entity = organizationAsUserSponsors.find(
       (entity) => entity.asUser === v.login,
     );
