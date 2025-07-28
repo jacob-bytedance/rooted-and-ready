@@ -106,18 +106,6 @@ import { HomeIcon } from 'lucide-react';
 
 You can do something like:
 
-```tsx title="page.tsx"
-import { getPageTreePeers } from 'fumadocs-core/server';
-import { source } from '@/lib/source';
-
-<Cards>
-  {getPageTreePeers(source.pageTree, '/docs/my-page').map((peer) => (
-    <Card key={peer.url} title={peer.name} href={peer.url}>
-      {peer.description}
-    </Card>
-  ))}
-</Cards>;
-```
 
 This will show the other pages in the same folder as cards.
 
@@ -202,9 +190,6 @@ Syntax Highlighting is supported by default using [Rehype Code](/docs/headless/m
 console.log('Hello World');
 ```
 
-```js title="My Title"
-console.log('Hello World');
-```
 ````
 
 #### Line Numbers
@@ -305,17 +290,6 @@ console.log('B');
 
 While disabled by default, you use MDX in tab values by configuring the remark plugin:
 
-```ts tab="Fumadocs MDX" title="source.config.ts"
-import { defineConfig } from 'fumadocs-mdx/config';
-
-export default defineConfig({
-  mdxOptions: {
-    remarkCodeTabOptions: {
-      parseMdx: true, // [!code ++]
-    },
-  },
-});
-```
 
 ```ts tab="MDX Compiler"
 import { compile } from '@mdx-js/mdx';
@@ -356,11 +330,7 @@ console.log('B');
 > This is only available on **Fumadocs MDX**.
 
 Reference another file (can also be a Markdown/MDX document).
-Specify the target file path in `<include>` tag (relative to the MDX file itself).
-
-```mdx title="page.mdx"
-<include>./another.mdx</include>
-```
+Specify the target file path in ````
 
 See [other usages of include](/docs/mdx/include).
 
@@ -380,17 +350,6 @@ npm i next -D
 
 When using Fumadocs MDX, you can customise it like:
 
-```tsx title="source.config.ts"
-import { defineConfig } from 'fumadocs-mdx/config';
-
-export default defineConfig({
-  mdxOptions: {
-    remarkNpmOptions: {
-      // ...
-    },
-  },
-});
-```
 
 ### Other Components
 

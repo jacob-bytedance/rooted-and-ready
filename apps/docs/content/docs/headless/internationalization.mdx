@@ -9,9 +9,6 @@ Fumadocs core provides necessary middleware and options for i18n support.
 
 You can define a config to share between utilities.
 
-<include cwd meta='title="lib/i18n.ts"'>
-  ../../examples/i18n/lib/i18n.ts
-</include>
 
 ### Hide Locale Prefix
 
@@ -45,8 +42,5 @@ This may cause undesired cache problems, and need to pay extra attention on SEO 
 
 Redirects users to appropriate locale, it can be customised from `i18n.ts`.
 
-<include cwd meta='title="middleware.ts"'>
-  ../../examples/i18n/middleware.ts
-</include>
 
 > When `hideLocale` is enabled, it uses `NextResponse.rewrite` to hide locale prefixes.

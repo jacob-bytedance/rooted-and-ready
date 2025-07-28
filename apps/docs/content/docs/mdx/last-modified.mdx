@@ -8,13 +8,6 @@ description: Output the last modified time of a document
 This feature is not enabled by default, you can enable this from the config file. Note that it only supports Git as version control.
 Please ensure you have Git installed on your machine, and **the repository is not shallow cloned**, as it relies on your local Git history.
 
-```ts title="source.config.ts"
-import { defineConfig } from 'fumadocs-mdx/config';
-
-export default defineConfig({
-  lastModifiedTime: 'git', // [!code highlight]
-});
-```
 
 ### Access the Property
 

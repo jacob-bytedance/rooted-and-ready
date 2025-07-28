@@ -27,37 +27,9 @@ Please note that you must have Tailwind CSS v4 configured.
 
 Create an OpenAPI instance on the server. Fumadocs OpenAPI renders the pages on server-side.
 
-```ts title="lib/source.ts"
-import { createOpenAPI, attachFile } from 'fumadocs-openapi/server';
-import { loader } from 'fumadocs-core/source';
-
-export const source = loader({
-  pageTree: {
-    // [!code ++] adds a badge to each page item in page tree
-    attachFile,
-  },
-});
-
-// [!code ++]
-export const openapi = createOpenAPI();
-```
 
 Add `APIPage` to your MDX Components, so that you can use it in MDX files.
 
-```tsx title="mdx-components.tsx"
-import defaultComponents from 'fumadocs-ui/mdx';
-import { APIPage } from 'fumadocs-openapi/ui';
-import { openapi } from '@/lib/source';
-import type { MDXComponents } from 'mdx/types';
-
-export function getMDXComponents(components?: MDXComponents): MDXComponents {
-  return {
-    ...defaultComponents,
-    APIPage: (props) => <APIPage {...openapi.getAPIPageProps(props)} />,
-    ...components,
-  };
-}
-```
 
 > It is a React Server Component.
 
@@ -67,18 +39,6 @@ You can generate MDX files directly from your OpenAPI schema.
 
 Create a script:
 
-```js title="scripts/generate-docs.mjs"
-import { generateFiles } from 'fumadocs-openapi';
-
-void generateFiles({
-  // the OpenAPI schema, you can also give it an external URL.
-  input: ['./unkey.json'],
-  output: './content/docs',
-  // we recommend to enable it
-  // make sure your endpoint description doesn't break MDX syntax.
-  includeDescription: true,
-});
-```
 
 > Only OpenAPI 3.0 and 3.1 are supported.
 

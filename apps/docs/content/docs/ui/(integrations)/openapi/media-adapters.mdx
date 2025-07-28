@@ -47,19 +47,3 @@ export { myAdapter } from './media-adapters';
 
 Pass the adapter.
 
-```ts title="lib/source.ts"
-import { createOpenAPI } from 'fumadocs-openapi/server';
-import * as Adapters from './media-adapters';
-import * as ClientAdapters from './media-adapters.client';
-
-export const openapi = createOpenAPI({
-  proxyUrl: '/api/proxy',
-  mediaAdapters: {
-    // [!code ++:4] override the default adapter of `application/json`
-    'application/json': {
-      ...Adapters.myAdapter,
-      client: ClientAdapters.myAdapter,
-    },
-  },
-});
-```

@@ -38,14 +38,6 @@ Fumadocs MDX transforms collections into type-safe data, accessible in your app.
 
 Compile Markdown & MDX files into a React Server Component, with useful properties like **Table of Contents**.
 
-```ts title="source.config.ts"
-import { defineCollections } from 'fumadocs-mdx/config';
-
-export const test = defineCollections({
-  type: 'doc',
-  dir: 'content/docs',
-});
-```
 
     </Tab>
 
@@ -53,33 +45,12 @@ export const test = defineCollections({
 
 Transform YAML/JSON files into an array of data.
 
-```ts title="source.config.ts"
-import { defineCollections } from 'fumadocs-mdx/config';
-
-export const test = defineCollections({
-  type: 'meta',
-  dir: 'content/docs',
-});
-```
 
     </Tab>
     <Tab value='docs'>
 
 Combination of `meta` and `doc` collections, which is needed for Fumadocs.
 
-```ts title="source.config.ts"
-import { defineDocs } from 'fumadocs-mdx/config';
-
-export const docs = defineDocs({
-  dir: 'content/docs',
-  docs: {
-    // options for `doc` collection
-  },
-  meta: {
-    // options for `meta` collection
-  },
-});
-```
 
     </Tab>
 

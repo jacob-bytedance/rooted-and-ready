@@ -8,19 +8,6 @@ preview: zoomImage
 
 Replace `img` with `ImageZoom` in your MDX components.
 
-```tsx title="mdx-components.tsx"
-import { ImageZoom } from 'fumadocs-ui/components/image-zoom';
-import defaultComponents from 'fumadocs-ui/mdx';
-import type { MDXComponents } from 'mdx/types';
-
-export function getMDXComponents(components?: MDXComponents): MDXComponents {
-  return {
-    ...defaultComponents,
-    img: (props) => <ImageZoom {...(props as any)} />,
-    ...components,
-  };
-}
-```
 
 Now image zoom will be automatically enabled on all images.
 

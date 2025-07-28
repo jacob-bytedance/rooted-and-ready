@@ -28,26 +28,6 @@ export default withMDX(config);
 
 Add to your Shiki transformers.
 
-```ts twoslash title="source.config.ts (Fumadocs MDX)"
-import { defineConfig } from 'fumadocs-mdx/config';
-import { transformerTwoslash } from 'fumadocs-twoslash';
-import { rehypeCodeDefaultOptions } from 'fumadocs-core/mdx-plugins';
-
-export default defineConfig({
-  mdxOptions: {
-    rehypeCodeOptions: {
-      themes: {
-        light: 'github-light',
-        dark: 'github-dark',
-      },
-      transformers: [
-        ...(rehypeCodeDefaultOptions.transformers ?? []),
-        transformerTwoslash(),
-      ],
-    },
-  },
-});
-```
 
 Add styles, Tailwind CSS v4 is required.
 
@@ -57,19 +37,6 @@ Add styles, Tailwind CSS v4 is required.
 
 Add MDX components.
 
-```tsx title="mdx-components.tsx"
-import * as Twoslash from 'fumadocs-twoslash/ui';
-import defaultComponents from 'fumadocs-ui/mdx';
-import type { MDXComponents } from 'mdx/types';
-
-export function getMDXComponents(components?: MDXComponents): MDXComponents {
-  return {
-    ...defaultComponents,
-    ...Twoslash,
-    ...components,
-  };
-}
-```
 
 Now you can add `twoslash` meta string to codeblocks.
 
@@ -83,23 +50,6 @@ console.log('Hello World');
 
 Learn more about [Twoslash notations](https://twoslash.netlify.app/refs/notations).
 
-```ts twoslash title="Test" lineNumbers
-type Player = {
-  /**
-   * The player name
-   * @default 'user'
-   */
-  name: string;
-};
-
-// ---cut---
-// @noErrors
-console.g;
-//       ^|
-
-const player: Player = { name: 'Hello World' };
-//    ^?
-```
 
 ```ts twoslash
 const a = '123';
@@ -128,11 +78,3 @@ a = 132;
 
 You can enable filesystem cache with `typesCache` option:
 
-```ts twoslash title="source.config.ts"
-import { transformerTwoslash } from 'fumadocs-twoslash';
-import { createFileSystemTypesCache } from 'fumadocs-twoslash/cache-fs';
-
-transformerTwoslash({
-  typesCache: createFileSystemTypesCache(),
-});
-```

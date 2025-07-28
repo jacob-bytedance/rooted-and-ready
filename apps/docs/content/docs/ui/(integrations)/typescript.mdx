@@ -17,18 +17,6 @@ It comes with the `AutoTypeTable` component. Learn more about [Auto Type Table](
 
 You can use it as a remark plugin:
 
-```ts title="source.config.ts" tab="Fumadocs MDX"
-import { remarkAutoTypeTable, createGenerator } from 'fumadocs-typescript';
-import { defineConfig } from 'fumadocs-mdx/config';
-
-const generator = createGenerator();
-
-export default defineConfig({
-  mdxOptions: {
-    remarkPlugins: [[remarkAutoTypeTable, { generator }]],
-  },
-});
-```
 
 ```ts tab="MDX Compiler"
 import { remarkAutoTypeTable, createGenerator } from 'fumadocs-typescript';
@@ -49,11 +37,6 @@ You can use it like [Auto Type Table](/docs/ui/components/auto-type-table), but 
 - `path` accepts a path relative to the MDX file itself.
 - You also need to add [`TypeTable`](/docs/ui/components/type-table) to MDX components.
 
-```ts title="path/to/file.ts"
-export interface MyInterface {
-  name: string;
-}
-```
 
 ```mdx title="page.mdx"
 <auto-type-table path="./path/to/file.ts" name="MyInterface" />

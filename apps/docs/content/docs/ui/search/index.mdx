@@ -9,26 +9,6 @@ You can customise some configurations from root provider.
 
 For example, to disable search UI:
 
-```tsx title="app/layout.tsx"
-import { RootProvider } from 'fumadocs-ui/provider';
-import type { ReactNode } from 'react';
-
-export default function Layout({ children }: { children: ReactNode }) {
-  return (
-    <html>
-      <body>
-        <RootProvider
-          search={{
-            enabled: false, // [!code ++]
-          }}
-        >
-          {children}
-        </RootProvider>
-      </body>
-    </html>
-  );
-}
-```
 
 For further customisations, you can see [Search Client](#search-client).
 

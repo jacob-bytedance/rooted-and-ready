@@ -18,16 +18,6 @@ fumadocs-docgen
 
 Add the remark plugin.
 
-```ts title="source.config.ts" tab="Fumadocs MDX"
-import { remarkInstall } from 'fumadocs-docgen';
-import { defineConfig } from 'fumadocs-mdx/config';
-
-export default defineConfig({
-  mdxOptions: {
-    remarkPlugins: [remarkInstall],
-  },
-});
-```
 
 ```ts tab="MDX Compiler"
 import { compile } from '@mdx-js/mdx';
@@ -40,20 +30,6 @@ await compile('...', {
 
 Define the required components.
 
-```tsx title="mdx-components.tsx (Fumadocs UI)"
-import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
-import defaultComponents from 'fumadocs-ui/mdx';
-import type { MDXComponents } from 'mdx/types';
-
-export function getMDXComponents(components?: MDXComponents): MDXComponents {
-  return {
-    ...defaultComponents,
-    Tab,
-    Tabs,
-    ...components,
-  };
-}
-```
 
 | Component |                                    |
 | --------- | ---------------------------------- |
@@ -95,22 +71,6 @@ my-package
 
 When using with Fumadocs UI, you can enable persistence with the `persist` option.
 
-```ts title="source.config.ts" tab="Fumadocs MDX"
-import { remarkInstall } from 'fumadocs-docgen';
-import { defineConfig } from 'fumadocs-mdx/config';
-
-const remarkInstallOptions = {
-  persist: {
-    id: 'some-id',
-  },
-};
-
-export default defineConfig({
-  mdxOptions: {
-    remarkPlugins: [[remarkInstall, remarkInstallOptions]],
-  },
-});
-```
 
 ```ts tab="MDX Compiler"
 import { compile } from '@mdx-js/mdx';

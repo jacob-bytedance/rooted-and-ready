@@ -120,13 +120,6 @@ Since Fumadocs uses Next.js App Router, you can change the base route of docs (e
 
 And update the base URL of pages in `source.ts`:
 
-```ts title="lib/source.ts"
-import { loader } from 'fumadocs-core/source';
-
-export const source = loader({
-  baseUrl: '/info', // [!code highlight]
-});
-```
 
 If you want to remove the entire base route (docs start at `/` instead of `/docs`), it's the same logic.
 
@@ -140,13 +133,6 @@ Make your docs folder a route group.
 
 And update `baseUrl`:
 
-```ts title="lib/source.ts"
-import { loader } from 'fumadocs-core/source';
-
-export const source = loader({
-  baseUrl: '/', // [!code highlight]
-});
-```
 
     </Accordion>
     <Accordion id='dynamic-route' title="It uses Dynamic Route, will it be poor in performance?">

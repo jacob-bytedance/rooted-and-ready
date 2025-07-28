@@ -9,7 +9,6 @@ You can make your docs site more AI-friendly with dedicated docs content for lar
 
 First, make a `getLLMText` function that converts pages into static MDX content:
 
-<include meta='title="lib/get-llm-text.ts"'>./get-llm-text.ts</include>
 
 > Modify it to include other remark plugins.
 
@@ -17,7 +16,6 @@ First, make a `getLLMText` function that converts pages into static MDX content:
 
 A version of docs for AIs to read.
 
-<include meta='title="app/llms-full.txt/route.ts"'>./llms.txt.ts</include>
 
 ### `*.mdx`
 
@@ -25,7 +23,6 @@ Allow people to append `.mdx` to a page to get its Markdown/MDX content.
 
 You can make a route handler to return page content, and redirect users to that route using middleware.
 
-<include meta='tab="app/llms.mdx/[[...slug]]/route.ts"'>./llms.mdx.ts</include>
 
 ```ts tab="next.config.ts"
 import type { NextConfig } from 'next';
@@ -54,15 +51,6 @@ npx @fumadocs/cli add ai-page-actions
 
 Use it in your docs page like:
 
-```tsx title="app/docs/[[...slug]]/page.tsx"
-<div className="flex flex-row gap-2 items-center border-b pt-2 pb-6">
-  <LLMCopyButton markdownUrl={`${page.url}.mdx`} />
-  <ViewOptions
-    markdownUrl={`${page.url}.mdx`}
-    githubUrl={`https://github.com/${owner}/${repo}/blob/dev/apps/docs/content/docs/${page.path}`}
-  />
-</div>
-```
 
 ## AI Search
 

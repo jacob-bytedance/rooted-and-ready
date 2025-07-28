@@ -48,34 +48,7 @@ However, you need to invoke the `load()` async function to load and compile cont
 
 For example:
 
-```tsx title="lib/source.ts"
-import { loader } from 'fumadocs-core/source';
-import { docs } from '@/.source';
 
-export const source = loader({
-  baseUrl: '/docs',
-  source: docs.toFumadocsSource(),
-});
-```
-
-```tsx title="page.tsx"
-import { source } from '@/lib/source';
-import { getMDXComponents } from '@/mdx-components';
-
-const page = source.getPage(['...']);
-
-if (page) {
-  // frontmatter properties are available
-  console.log(page.data);
-
-  // Markdown content requires await
-  const { body: MdxContent, toc } = await page.data.load();
-
-  console.log(toc);
-
-  return <MdxContent components={getMDXComponents()} />;
-}
-```
 
 When using Async Mode, we highly recommend to use third-party services to implement search, which usually have better capability to handle massive amount of content to index.
 

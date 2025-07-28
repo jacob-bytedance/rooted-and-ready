@@ -87,13 +87,6 @@ export const { docs, meta } = defineDocs({
 
 Now you can generate types using `fumadocs-mdx` command, it's recommended to set it as a `postinstall` script.
 
-```json title="package.json"
-{
-  "scripts": {
-    "postinstall": "fumadocs-mdx"
-  }
-}
-```
 
 When starting the development server, a `.source` folder will be generated, it contains all parsed collections/files.
 You can add it to `.gitignore`, it will replace the old `.map` file.

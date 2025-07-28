@@ -13,33 +13,9 @@ npm i fumadocs-mdx @types/mdx @types/mdx
 
 Create the configuration file:
 
-```ts title="source.config.ts"
-import { defineDocs, defineConfig } from 'fumadocs-mdx/config';
-
-export const docs = defineDocs({
-  dir: 'content/docs',
-});
-
-export default defineConfig();
-```
 
 Add the plugin to Next.js config:
 
-```js title="next.config.mjs"
-import { createMDX } from 'fumadocs-mdx/next';
-
-const withMDX = createMDX({
-  // customise the config file path
-  // configPath: "source.config.ts"
-});
-
-/** @type {import('next').NextConfig} */
-const config = {
-  reactStrictMode: true,
-};
-
-export default withMDX(config);
-```
 
 <Callout title="ESM Only" type='warn' className="mt-4">
 
@@ -81,15 +57,6 @@ The type of output can have a different type/shape depending on the collection t
 
 Create a `docs` collection and use `toFumadocsSource()` on the output.
 
-```ts title="lib/source.ts"
-import { docs } from '@/.source';
-import { loader } from 'fumadocs-core/source';
-
-export const source = loader({
-  baseUrl: '/docs',
-  source: docs.toFumadocsSource(),
-});
-```
 
 > You can do the same for multiple `docs` collections.
 
@@ -124,10 +91,3 @@ return <MDX components={getMDXComponents()} />;
 
 The `fumadocs-mdx` command also generates types for `.source` folder. Add it as a post install script to ensure types are generated when initializing the project.
 
-```json title="package.json"
-{
-  "scripts": {
-    "postinstall": "fumadocs-mdx"
-  }
-}
-```

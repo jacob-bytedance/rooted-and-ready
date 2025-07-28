@@ -26,25 +26,6 @@ See [Definitions of Page Tree](/docs/headless/page-tree).
 
 Pass your Page Tree to `DocsLayout` (usually in a `layout.tsx`).
 
-```tsx title="layout.tsx"
-import { DocsLayout } from 'fumadocs-ui/layouts/docs';
-import type { ReactNode } from 'react';
-
-export default function Layout({ children }: { children: ReactNode }) {
-  return (
-    <DocsLayout
-      nav={{ title: 'Example Docs' }}
-      tree={
-        {
-          /// your own tree
-        }
-      }
-    >
-      {children}
-    </DocsLayout>
-  );
-}
-```
 
 The page tree is like a smarter "sidebar items", they will be referenced everywhere in the UI for navigation elements, such as the page footer.
 

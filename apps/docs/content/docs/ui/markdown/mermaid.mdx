@@ -15,27 +15,11 @@ mermaid next-themes
 
 Create the Mermaid component:
 
-<include cwd meta='title="components/mdx/mermaid.tsx"'>
-  ./components/mdx/mermaid.tsx
-</include>
 
 > This is originally inspired by [remark-mermaid](https://github.com/the-guild-org/docs/blob/main/packages/remark-mermaid/src/mermaid.tsx).
 
 Add the component as a MDX component:
 
-```tsx title="mdx-components.tsx"
-import defaultMdxComponents from 'fumadocs-ui/mdx';
-import { Mermaid } from '@/components/mdx/mermaid';
-import type { MDXComponents } from 'mdx/types';
-
-export function getMDXComponents(components?: MDXComponents): MDXComponents {
-  return {
-    ...defaultMdxComponents,
-    Mermaid,
-    ...components,
-  };
-}
-```
 
 ## Usage
 

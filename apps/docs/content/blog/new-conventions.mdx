@@ -19,29 +19,9 @@ For existing users, you probably knew how to pass MDX components, and no further
 
 But you can still make one:
 
-```tsx title="mdx-components.tsx"
-import defaultMdxComponents from 'fumadocs-ui/mdx';
-import type { MDXComponents } from 'mdx/types';
-
-export function getMDXComponents(components?: MDXComponents): MDXComponents {
-  return {
-    ...defaultMdxComponents,
-    ...components,
-  };
-}
-```
 
 And use it in your MDX component.
 
-```tsx title="page.tsx"
-import { getMDXComponents } from '@/mdx-components';
-
-<MDXContent
-  components={getMDXComponents({
-    // extend it
-  })}
-/>;
-```
 
 ## Deprecating `<I18nProvider />`
 

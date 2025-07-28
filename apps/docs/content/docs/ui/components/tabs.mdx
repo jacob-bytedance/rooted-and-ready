@@ -10,19 +10,6 @@ preview: tabs
 
 Add MDX components.
 
-```tsx title="mdx-components.tsx"
-import defaultMdxComponents from 'fumadocs-ui/mdx';
-import * as TabsComponents from 'fumadocs-ui/components/tabs';
-import type { MDXComponents } from 'mdx/types';
-
-export function getMDXComponents(components?: MDXComponents): MDXComponents {
-  return {
-    ...defaultMdxComponents,
-    ...TabsComponents, // [!code ++]
-    ...components,
-  };
-}
-```
 
 And use it like:
 

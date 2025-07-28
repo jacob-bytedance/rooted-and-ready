@@ -68,14 +68,6 @@ loader({
 
 Pass the `i18n` config to loader.
 
-```ts title="lib/source.ts"
-import { i18n } from '@/lib/i18n';
-import { loader } from 'fumadocs-core/source';
-
-export const source = loader({
-  i18n, // [!code highlight]
-});
-```
 
 With i18n enabled, loader will generate a page tree for every locale.
 
@@ -141,13 +133,6 @@ source.getNodeMeta(folderNode);
 A function to generate output for Next.js `generateStaticParams`.
 The generated parameter names will be `slug: string[]` and `lang: string` (i18n only).
 
-```ts title="app/[[...slug]]/page.tsx"
-import { source } from '@/lib/source';
-
-export function generateStaticParams() {
-  return source.generateParams();
-}
-```
 
 ### Language Entries
 
