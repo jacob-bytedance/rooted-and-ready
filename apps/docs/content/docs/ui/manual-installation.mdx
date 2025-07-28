@@ -36,9 +36,6 @@ const config = {
 export default withMDX(config);
 ```
 
-<include cwd meta='tab="mdx-components.tsx"'>
-  ../../examples/next-mdx/mdx-components.tsx
-</include>
 
 ```ts tab="source.config.ts"
 import { defineDocs } from 'fumadocs-mdx/config';
@@ -58,42 +55,11 @@ export const docs = defineDocs({
 
 Finally, to access your content:
 
-```ts title="lib/source.ts"
-// .source folder will be generated when you run `next dev`
-import { docs } from '@/.source';
-import { loader } from 'fumadocs-core/source';
-
-export const source = loader({
-  baseUrl: '/docs',
-  source: docs.toFumadocsSource(),
-});
-```
 
 ### Root Layout
 
 Wrap the entire application inside [Root Provider](/docs/ui/layouts/root-provider), and add required styles to `body`.
 
-```tsx title="app/layout.tsx"
-import { RootProvider } from 'fumadocs-ui/provider';
-import type { ReactNode } from 'react';
-
-export default function Layout({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        // you can use Tailwind CSS too
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          minHeight: '100vh',
-        }}
-      >
-        <RootProvider>{children}</RootProvider>
-      </body>
-    </html>
-  );
-}
-```
 
 ### Styles
 
@@ -111,15 +77,9 @@ Add the following Tailwind CSS styles to `global.css`.
 
 Create a `app/layout.config.tsx` file to put the shared options for our layouts.
 
-<include cwd meta='title="app/layout.config.tsx"'>
-  ../../examples/next-mdx/app/layout.config.tsx
-</include>
 
 Create a folder `/app/docs` for our docs, and give it a proper layout.
 
-<include cwd meta='title="app/docs/layout.tsx"'>
-  ../../examples/next-mdx/app/docs/layout.tsx
-</include>
 
 > `pageTree` refers to Page Tree, it should be provided by your content source.
 
@@ -128,24 +88,6 @@ Create a folder `/app/docs` for our docs, and give it a proper layout.
 Create a catch-all route `/app/docs/[[...slug]]` for docs pages.
 
 In the page, wrap your content in the [Page](/docs/ui/layouts/page) component.
-
-<CodeBlockTabs groupId='content-source'>
-
-    <include cwd meta='title="app/docs/[[...slug]]/page.tsx" tab="Fumadocs MDX"'>../../examples/next-mdx/app/docs/[[...slug]]/page.tsx</include>
-
-    <include cwd meta='title="app/docs/[[...slug]]/page.tsx" tab="Content Collections"'>../../examples/content-collections/app/docs/[[...slug]]/page.tsx</include>
-
-</CodeBlockTabs>
-
-### Search
-
-Use the default document search based on Orama.
-
-<include cwd meta='title="app/api/search/route.ts"'>
-  ../../examples/next-mdx/app/api/search/route.ts
-</include>
-
-Learn more about [Document Search](/docs/headless/search).
 
 ### Done
 
